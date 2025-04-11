@@ -5,7 +5,7 @@ def find_hash_collsion_bytes(h1: BitVector, h2: BitVector):
     """
     Find the bytes that will make two hashes collide.
     h2 is the hash to be modified to be equal to h1.
-    Only 8 bytes are needed to make such transformation.
+    Only 8 bytes are needed to make such a transformation.
     """
     h1 = h1.deep_copy().shift_right(4) | h1.deep_copy().shift_left(32-4)
     new_bytes = []

@@ -10,18 +10,18 @@ def save_hash_of_dir(hashes: dir, output_path: str):
             hash_file.write(f"{file_path}: {file_hash}\n")
 
 def check_collsions(hashes_file_path: str):
-    collsions = False
+    collisions = False
     with open(hashes_file_path, "r") as hash_file:
         hashes = {}
         for line in hash_file:
             file_path, file_hash = line.strip().split(": ")
             if file_hash in hashes:
                 print(f"Collision found: {file_path} and {hashes[file_hash]} have the same hash {file_hash}")
-                collsions = True
+                collisions = True
             else:
                 hashes[file_hash] = file_path
 
-    if not collsions:
+    if not collisions:
         print("No collisions found.")
 
 
