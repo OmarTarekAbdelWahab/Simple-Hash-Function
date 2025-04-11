@@ -1,0 +1,56 @@
+Alexandria University
+Faculty of Engineering
+Computer and Systems Engineering Department
+CSE 464: Computer System Security
+Assigned: Friday, 21th March, 2025
+Due: Thursday, 27th March, 2025
+Assignment 6
+(Chapter 15)
+1 Theoretical Questions
+1. SHA1 scans through a document by processing 512-bit blocks. Each block is hashed into
+a 160 bit hash code that is then used as the initialization vector for the next block of
+512 bits. This obviously requires a 160 bit initialization vector for the first 512-bit block.
+Here is the vector:
+H_0 = 67452301 (32 bits in hex)
+H_1 = efcdab89
+H_2 = 98badcfe
+H_3 = 10325476
+H_4 = c3d2e1f0
+How are these numbers selected?
+2. What is meant by the strong collision resistance property of a hash function?
+2 Programming Questions
+To gain further insights into hashing, the goal of this homework is to implement in Python a
+very simple hash function (that is meant more for play than for any serious production work).
+Write a function that creates a 32-bit hash of a file through the following steps:
+1. Initialize the hash to all zeros.
+2. Scan the file one byte at a time.
+3. Before a new byte is read from the file, circularly shift the bit pattern in the hash to the
+left by four positions.
+4. Now XOR the new byte read from the file with the least significant byte of the hash.
+Now scan your directory and compute the hash of all your files. Dump the hash values
+in some output file.
+Now write another two-line script to check if your hashing function is exhibiting any collisions.
+Even though we have a trivial hash function, it is very likely that you will not see any collisions
+even if your directory is large. Subsequently, by using a couple of files (containing random text)
+created specially for this demonstration, show how you can make their hash codes to come out
+to be the same if you alter one of the files by appending to it a stream of bytes that would
+Prof. Dr. Sahar Ghanem 1 Eng. Ahmed Saeed
+Alexandria University
+Faculty of Engineering
+Computer and Systems Engineering Department
+CSE 464: Computer System Security
+Assigned: Friday, 21th March, 2025
+Due: Thursday, 27th March, 2025
+be the XOR of the original hash values for the files (after you have circularly rotated the hash
+value for the first file by 4 bits to the left). NOTE: This homework is easy to implement in
+Python if you use the BitVector class.
+Notes
+• This assignment is based on Computer and Network Security by Avinash Kak.
+• Lecture code: https://engineering.purdue.edu/kak/compsec/code/Lecture15Code.
+tar.gz
+• For the Theoretical Questions part, you must answer it individually.
+• For the Programming Questions part, you can work in teams of three. Each team
+must submit the source code and a report showing the pseudocode of the main parts,
+the program outputs, your explanations to the outputs got, and answers to any questions
+asked in the problem statements.
+Prof. Dr. Sahar Ghanem 2 Eng. Ahmed Saeed
